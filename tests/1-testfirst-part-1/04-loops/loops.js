@@ -34,3 +34,35 @@ function join(array, spliter) {
   }
   return str;
 }
+
+// function gridGenerator(number) {
+//   let str = "";
+//   for (let row = 0; row < number; row++) {
+//     for (let col = 0; col < number; col++) {
+//       if (row === col || row + col === number - 1) {
+//         str += "#";
+//       } else {
+//         str += " ";
+//       }
+//     }
+//     str += "\n";
+//   }
+//   return str;
+// }
+
+function gridGenerator(number) {
+  let str = "";
+
+  for (let row = 0; row < number; row++) {
+    for (let col = 0; col < number; col++) {
+      if (row === col || row + col === number - 1) {
+        str += "#";
+      } else {
+        str += " ";
+      }
+    }
+    str += "\n";
+  }
+
+  return str;
+}
