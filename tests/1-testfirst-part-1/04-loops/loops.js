@@ -75,12 +75,19 @@ function paramify(obj) {
   return str;
 }
 
-let kk = {
-  size: 14,
-};
-let ks = {
-  height: 74,
-  width: 12,
-};
-console.log(paramify(kk));
-console.log(paramify(ks));
+function paramifyObjectKeys(obj) {
+  const keys = Object.keys(obj);
+
+  keys.sort();
+
+  let result = "";
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    result += key + "=" + obj[key];
+    if (i !== keys.length - 1) {
+      result += "&";
+    }
+  }
+
+  return result;
+}
