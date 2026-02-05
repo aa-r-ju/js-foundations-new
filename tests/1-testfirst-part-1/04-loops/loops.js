@@ -91,3 +91,19 @@ function paramifyObjectKeys(obj) {
 
   return result;
 }
+
+function sort(arr) {
+  let sorted = arr.slice();
+
+  for (let i = 0; i < sorted.length; i++) {
+    for (let j = 0; j < sorted.length - 1; j++) {
+      if (sorted[j] > sorted[j + 1]) {
+        let temp = sorted[j];
+        sorted[j] = sorted[j + 1];
+        sorted[j + 1] = temp;
+      }
+    }
+  }
+
+  return sorted;
+}
