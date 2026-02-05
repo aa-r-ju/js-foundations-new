@@ -18,7 +18,19 @@ function sum(array) {
   }
   return numberValue;
 }
-console.log(sum([]));
-console.log(sum([7]));
-console.log(sum([7, 11]));
-console.log(sum([1, 3, 5, 7, 9]));
+
+function join(array, spliter) {
+  let str = "";
+  for (let i = 0; i < array.length; i++) {
+    if (spliter === undefined) {
+      str += array[i];
+    } else {
+      if (array.length - 1 !== i) {
+        str += array[i] + spliter;
+      } else {
+        str += array[i];
+      }
+    }
+  }
+  return str;
+}
