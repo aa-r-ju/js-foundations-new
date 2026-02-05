@@ -35,21 +35,6 @@ function join(array, spliter) {
   return str;
 }
 
-// function gridGenerator(number) {
-//   let str = "";
-//   for (let row = 0; row < number; row++) {
-//     for (let col = 0; col < number; col++) {
-//       if (row === col || row + col === number - 1) {
-//         str += "#";
-//       } else {
-//         str += " ";
-//       }
-//     }
-//     str += "\n";
-//   }
-//   return str;
-// }
-
 function gridGenerator(number) {
   let str = "";
 
@@ -66,3 +51,36 @@ function gridGenerator(number) {
 
   return str;
 }
+
+function paramify(obj) {
+  let str = "";
+  let array = [];
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      array.push(key);
+    }
+  }
+
+  array.sort();
+
+  for (let i = 0; i < array.length; i++) {
+    let key = array[i];
+    str += key + "=" + obj[key];
+    if (i !== array.length - 1) {
+      str += "&";
+    }
+  }
+
+  return str;
+}
+
+let kk = {
+  size: 14,
+};
+let ks = {
+  height: 74,
+  width: 12,
+};
+console.log(paramify(kk));
+console.log(paramify(ks));
