@@ -8,3 +8,7 @@ function findObjPropsHasOwn(obj) {
   }
   return array.join(", ");
 }
+
+function findObjKeys(obj) {
+  return Object.keys(obj).join(", ");
+}
