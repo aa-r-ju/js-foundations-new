@@ -12,3 +12,26 @@ Pokemon.prototype.isDefeated = function () {
 let human = new Pokemon("pikachu", 250, 4);
 console.log(human.biteAttack());
 console.log(human.isDefeated());
+
+function simulateBattle(pokemon1, pokemon2, firstAttacker) {
+  let attacker;
+  let defender;
+
+  if (pokemon1.name === firstAttacker) {
+    attacker = pokemon1;
+    defender = pokemon2;
+  } else {
+    attacker = pokemon2;
+    defender = pokemon1;
+  }
+
+  for (let i = 0; i < 1000; i++) {
+    defender.health -= attacker.biteAttack();
+    if (defender.isDefeated()) {
+      return `${attacker.name} Wins!`;
+    }
+    let temp = attacker;
+    attacker = defender;
+    defender = temp;
+  }
+}
