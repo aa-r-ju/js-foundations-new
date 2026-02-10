@@ -25,3 +25,12 @@ const andThisFunction = () => {
 };
 
 console.log(yourFunctionRunner(callThisFunction, andThisFunction));
+
+function makeAdder(num) {
+  return function add(val = 0) {
+    return val + num;
+  };
+}
+const adderOf10Function = makeAdder(10);
+console.log(adderOf10Function());
+console.log(adderOf10Function(22));
