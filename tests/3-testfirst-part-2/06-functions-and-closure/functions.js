@@ -49,20 +49,26 @@ function once(fn) {
   };
 }
 
-// const sayHello = () => {
-//   return "Hello!";
-// };
-// const returnValue = once(sayHello);
-// console.log(returnValue());
-// console.log(returnValue());
-// console.log(returnValue());
+function createObjectWithClosures() {
+  let value = 0;
+  return {
+    oneIncrementer: function () {
+      value += 1;
+    },
+    tensIncrementer: function () {
+      value += 10;
+    },
+    getValue: function () {
+      return value;
+    },
+    setValue: function (num) {
+      value = num;
+    },
+  };
+}
+let sum = createObjectWithClosures();
+console.log(sum.oneIncrementer());
+console.log(sum.tensIncrementer());
 
-let num = 50;
-
-const addTen = () => {
-  return (num += 10); // num is defined outside of addTen
-};
-const increment = once(addTen);
-console.log(increment());
-console.log(increment());
-console.log(increment());
+// console.log(sum.setValue(7.5));
+console.log(sum.getValue());
