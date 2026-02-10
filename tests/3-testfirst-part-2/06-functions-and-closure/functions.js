@@ -34,3 +34,35 @@ function makeAdder(num) {
 const adderOf10Function = makeAdder(10);
 console.log(adderOf10Function());
 console.log(adderOf10Function(22));
+
+function once(fn) {
+  let hasBeenCalled = false;
+  let save;
+  return function () {
+    if (hasBeenCalled === false) {
+      save = fn();
+      hasBeenCalled = true;
+    } else {
+      return "the function has already been called...";
+    }
+    return save;
+  };
+}
+
+// const sayHello = () => {
+//   return "Hello!";
+// };
+// const returnValue = once(sayHello);
+// console.log(returnValue());
+// console.log(returnValue());
+// console.log(returnValue());
+
+let num = 50;
+
+const addTen = () => {
+  return (num += 10); // num is defined outside of addTen
+};
+const increment = once(addTen);
+console.log(increment());
+console.log(increment());
+console.log(increment());
