@@ -72,3 +72,17 @@ console.log(sum.tensIncrementer());
 
 // console.log(sum.setValue(7.5));
 console.log(sum.getValue());
+
+function dontSpillTheBeans(initialSecret) {
+  let secret = initialSecret;
+
+  return {
+    getSecret: function () {
+      return secret;
+    },
+
+    setSecret: function (newSecret) {
+      secret = newSecret;
+    },
+  };
+}
