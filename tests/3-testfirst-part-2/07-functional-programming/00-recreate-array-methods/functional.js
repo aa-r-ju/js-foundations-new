@@ -72,3 +72,18 @@ console.log(
     5
   )
 );
+
+function countWords(startingValue, words) {
+  if (!words) {
+    return startingValue;
+  }
+  let count = 1;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === " ") {
+      count += 1;
+    }
+  }
+  return count + startingValue;
+}
+console.log(countWords(0, "count the words"));
+console.log(countWords(5, "this is a sentence with 7 words"));
