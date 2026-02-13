@@ -42,6 +42,33 @@ const evenFilter = (element) => {
 const oddFilter = (element) => {
   return !evenFilter(element);
 };
-let values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(filter(values, evenFilter));
-console.log(filter(values, oddFilter));
+
+function includes(arr, val) {
+  if (Array.isArray(arr)) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === val) {
+        return true;
+      }
+    }
+  } else if (typeof arr === "object" && arr !== null) {
+    for (let keys in arr) {
+      if (arr[keys] === val) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+console.log(includes([1, 2, 3], 3));
+console.log(
+  includes(
+    {
+      moe: 1,
+      larry: 3,
+      curly: 9,
+    },
+    5
+  )
+);
