@@ -87,3 +87,23 @@ function countWords(startingValue, words) {
 }
 console.log(countWords(0, "count the words"));
 console.log(countWords(5, "this is a sentence with 7 words"));
+
+function reduce(array, start, callback) {
+  let result = start;
+
+  for (let i = 0; i < array.length; i++) {
+    result = callback(result, array[i]);
+  }
+
+  return result;
+}
+
+let add = (a, b) => a + b;
+console.log(reduce([3, 5, 7], 0, add));
+
+function countWords(total, sentence) {
+  return total + sentence.split(" ").length;
+}
+
+let lines = ["hello there this is line 1", "and this is line 2"];
+console.log(reduce(lines, 0, countWords));
