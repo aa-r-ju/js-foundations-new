@@ -107,3 +107,18 @@ function countWords(total, sentence) {
 
 let lines = ["hello there this is line 1", "and this is line 2"];
 console.log(reduce(lines, 0, countWords));
+
+function sum(array) {
+  return reduce(array, 0, (a, b) => a + b);
+}
+
+console.log(typeof sum);
+
+function every(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (!callback(array[i])) {
+      return false;
+    }
+  }
+  return true;
+}
