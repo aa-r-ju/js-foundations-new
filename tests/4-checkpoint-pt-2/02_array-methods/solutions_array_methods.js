@@ -18,3 +18,9 @@ let kkk = [
   "snowman@iceland.com",
 ];
 console.log(useFilter(kkk));
+
+function sumWithReduce(arr, startValue = 0) {
+  return arr.reduce((acc, curr) => acc + curr, startValue);
+}
+let sum = [7, 8, 9, 10];
+console.log(sumWithReduce(sum, 202));
