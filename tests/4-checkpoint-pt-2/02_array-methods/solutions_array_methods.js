@@ -24,3 +24,14 @@ function sumWithReduce(arr, startValue = 0) {
 }
 let sum = [7, 8, 9, 10];
 console.log(sumWithReduce(sum, 202));
+
+function filterEvensDoubleAndSum(arr) {
+  return arr
+    .filter((num) => num % 2 === 0)
+    .map((num) => num * 2)
+    .reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(filterEvensDoubleAndSum([1, 2, 3, 4])); // 12
+console.log(filterEvensDoubleAndSum([10, 12, 15, 19, 20])); // 84
+console.log(filterEvensDoubleAndSum([10, 11, 12])); // 44
