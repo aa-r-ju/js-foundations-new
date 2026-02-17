@@ -13,11 +13,10 @@ map and reduce.
 
 Warmup - Re-Implement the Array.prototype.forEach method
 
-*/
 
 describe("the function forEach", () => {
   beforeEach(() => {
-    // A spy is set to check if Array.prototype.forEach is called
+    A spy is set to check if Array.prototype.forEach is called
     spyOn(Array.prototype, "forEach").and.callThrough();
     spyOn(console, "log").and.callThrough();
   });
