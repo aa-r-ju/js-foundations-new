@@ -1,7 +1,7 @@
 /* eslint-env jasmine */
 /* eslint-disable no-undef */
 
-describe('thrice function', () => {
+describe("thrice function", () => {
   let eight;
 
   beforeEach(() => {
@@ -10,21 +10,21 @@ describe('thrice function', () => {
     });
   });
 
-  it('thrice returns a function', () => {
-    expect(typeof eight === 'function').toBe(true);
+  it("thrice returns a function", () => {
+    expect(typeof eight === "function").toBe(true);
   });
 
-  it('the function returned invokes the function passed to the thrice function', () => {
+  it("the function returned invokes the function passed to the thrice function", () => {
     const value = eight();
     expect(value).toBe(8);
   });
 
-  it('the function returned invokes the function passed to the thrice function up to three times', () => {
+  it("the function returned invokes the function passed to the thrice function up to three times", () => {
     const value = eight() + eight() + eight();
     expect(value).toBe(24);
   });
 
-  it('returns a function that cannot be invoked more than three times (thrice)', function() {
+  it("returns a function that cannot be invoked more than three times (thrice)", function () {
     const firstCall = eight();
     const secondCall = eight();
     const thirdCall = eight();
@@ -41,12 +41,12 @@ describe('thrice function', () => {
     expect(sixthCall).toBe(undefined);
   });
 
-  it('additional specs with new functions', () => {
+  it("additional specs with new functions", () => {
     const ten = thrice(() => {
       return 10;
     });
     const javaScript = thrice(() => {
-      return 'javaScript is great!';
+      return "javaScript is great!";
     });
     const truthy = thrice(() => {
       return true;
@@ -67,6 +67,8 @@ describe('thrice function', () => {
 
     expect(
       `${javaScript()} ${javaScript()} ${javaScript()} ${javaScript()}`
-    ).toBe('javaScript is great! javaScript is great! javaScript is great! undefined');
+    ).toBe(
+      "javaScript is great! javaScript is great! javaScript is great! undefined"
+    );
   });
 });
