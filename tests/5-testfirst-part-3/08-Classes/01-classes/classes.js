@@ -36,3 +36,22 @@ class Cat extends Mammal {
 }
 let val = new Cat();
 console.log(val.meow());
+
+class Dog extends Mammal {
+  constructor(name, breed) {
+    super(name);
+    this.breed = breed;
+  }
+  bark() {
+    return "RUFF RUFF";
+  }
+  haveBaby(val) {
+    const beagle = new Dog(`Baby ${this.name}`, val);
+    this.offspring.push(beagle);
+    return beagle;
+  }
+
+  sayHello() {
+    return `My name is ${this.name}, I'm a ${this.constructor.name}`;
+  }
+}
