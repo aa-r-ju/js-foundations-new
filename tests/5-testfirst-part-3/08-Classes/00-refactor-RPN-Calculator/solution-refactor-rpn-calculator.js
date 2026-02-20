@@ -7,48 +7,48 @@
 
 class RPNCalculator {
   constructor() {
-    this.stack = [];
+    this.state = [];
   }
-
   push(num) {
-    this.stack.push(num);
+    this.state.push(num);
   }
-
-  value() {
-    return this.stack[this.stack.length - 1];
-  }
-
-  _checkLength() {
-    if (this.stack.length < 2) {
+  checkLength() {
+    if (this.state.length < 2) {
       throw "rpnCalculatorInstance is empty";
     }
   }
-
+  value() {
+    return this.state[this.state.length - 1];
+  }
   plus() {
-    this._checkLength();
-    const b = this.stack.pop();
-    const a = this.stack.pop();
-    this.stack.push(a + b);
+    this.checkLength();
+    let b = this.state.pop();
+    let a = this.state.pop();
+    let val = a + b;
+    this.state.push(val);
   }
-
   minus() {
-    this._checkLength();
-    const b = this.stack.pop();
-    const a = this.stack.pop();
-    this.stack.push(a - b);
+    this.checkLength();
+    let b = this.state.pop();
+    let a = this.state.pop();
+    let val = a - b;
+    this.state.push(val);
   }
-
   times() {
-    this._checkLength();
-    const b = this.stack.pop();
-    const a = this.stack.pop();
-    this.stack.push(a * b);
+    this.checkLength();
+    let b = this.state.pop();
+    let a = this.state.pop();
+    let val = a * b;
+    this.state.push(val);
   }
-
   divide() {
-    this._checkLength();
-    const b = this.stack.pop();
-    const a = this.stack.pop();
-    this.stack.push(a / b);
+    this.checkLength();
+    let b = this.state.pop();
+    let a = this.state.pop();
+    let val = a / b;
+    this.state.push(val);
   }
 }
+
+let cslc = new RPNCalculator();
+console.log(cslc);
