@@ -61,6 +61,20 @@ class VanishingMan {
     this.lettersGuessed = [];
     this.gameState = "playing";
   }
+  submitGuess(val) {
+    let value = val.toLowerCase();
+
+    if (this.gameState !== "playing") {
+      return;
+    } else {
+      if (!this.lettersGuessed.includes(value)) {
+        this.lettersGuessed.push(value);
+        if (!this.secretWord.includes(value)) {
+          this.remainingGuesses -= 1;
+        }
+      }
+    }
+  }
 }
 
 const kk = new VanishingMan("aerobic");
