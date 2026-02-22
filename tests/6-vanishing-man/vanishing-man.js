@@ -93,18 +93,23 @@ class VanishingMan {
       this.gameState = "won";
     }
   }
+
+  getSecretWordPuzzle() {
+    let puzzle = "";
+    for (let i = 0; i < this.secretWord.length; i++) {
+      const letter = this.secretWord[i];
+      if (letter === " ") {
+        puzzle += " ";
+      } else if (this.lettersGuessed.includes(letter)) {
+        puzzle += letter;
+      } else {
+        puzzle += "#";
+      }
+    }
+    return puzzle;
+  }
 }
 
 const kk = new VanishingMan("aerobic");
-console.log(kk.submitGuess("a"));
-console.log(kk.submitGuess("e"));
-console.log(kk.submitGuess("r"));
-console.log(kk.submitGuess("l"));
-console.log(kk.submitGuess("k"));
-console.log(kk.submitGuess("o"));
-console.log(kk.submitGuess("b"));
-console.log(kk.submitGuess("i"));
-console.log(kk.submitGuess("c"));
-console.log(kk.gameState);
-console.log(kk.computeGameState());
-console.log(kk.gameState);
+console.log(kk.getSecretWordPuzzle());
+// console.log(kk);
