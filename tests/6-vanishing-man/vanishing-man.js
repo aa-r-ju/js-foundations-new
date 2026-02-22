@@ -75,6 +75,24 @@ class VanishingMan {
       }
     }
   }
+
+  computeGameState() {
+    if (this.remainingGuesses <= 0) {
+      this.gameState = "lost";
+      return;
+    }
+    let winner = true;
+    for (let i = 0; i < this.secretWord.length; i++) {
+      let letter = this.secretWord[i];
+      if (letter !== " " && !this.lettersGuessed.includes(letter)) {
+        winner = false;
+        break;
+      }
+    }
+    if (winner) {
+      this.gameState = "won";
+    }
+  }
 }
 
 const kk = new VanishingMan("aerobic");
