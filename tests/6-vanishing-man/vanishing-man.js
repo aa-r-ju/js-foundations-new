@@ -108,8 +108,78 @@ class VanishingMan {
     }
     return puzzle;
   }
+  getGameStateMessage() {
+    if (this.gameState === "won") {
+      return "Winner Winner Chicken Dinner, you won!";
+    }
+
+    const wrong = 6 - this.remainingGuesses;
+
+    const stages = [
+      `
+
+
+
+
+
+
+=========`,
+      `
+
+  O      
+
+
+=========`,
+      `
+
+  O      
+ /|      
+
+
+=========`,
+      `
+
+  O      
+ /|      
+
+
+=========`,
+      `
+
+  O      
+ /|\\      
+
+
+=========`,
+      `
+
+  O      
+ /|\\      
+ /        
+
+
+=========`,
+      `
+
+  O   
+ /|\\  
+ / \\  
+
+=========`,
+    ];
+    if (this.gameState === "lost") {
+      return `Game Over, the word was "${this.secretWord.join("")}":\n${
+        stages[6]
+      }`;
+    }
+
+    return `There is a total of ${this.remainingGuesses} guesses remaining:\n${stages[wrong]}`;
+  }
 }
 
 const kk = new VanishingMan("aerobic");
+console.log(kk.submitGuess("k"));
+console.log(kk.submitGuess("A"));
+console.log(kk.submitGuess("C"));
 console.log(kk.getSecretWordPuzzle());
-// console.log(kk);
+console.log(kk);
