@@ -177,6 +177,19 @@ class VanishingMan {
   }
 }
 
+function simulateVanishingMan(word) {
+  const game = new VanishingMan(word);
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  while (game.gameState === "playing") {
+    const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    game.submitGuess(randomLetter);
+    game.computeGameState();
+  }
+
+  return game.getGameStateMessage();
+}
+
 const kk = new VanishingMan("aerobic");
 console.log(kk.submitGuess("k"));
 console.log(kk.submitGuess("A"));
