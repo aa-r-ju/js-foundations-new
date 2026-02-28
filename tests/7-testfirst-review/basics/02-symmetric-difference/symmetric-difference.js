@@ -17,3 +17,14 @@ console.log(difference([1, 2, 3, 4, 5, 6], [9, 8, 7, 1, 2, 5, 11]));
 console.log(
   difference(["hello", "world", "bye"], ["full", "stack", "world", "bye"])
 );
+
+function symmetricDiff(arr1, arr2) {
+  let resultA = difference(arr1, arr2);
+  let resultB = difference(arr2, arr1);
+  return [...resultA, ...resultB];
+}
+
+console.log(
+  symmetricDiff(["hello", "world", "bye"], ["full", "stack", "world", "bye"])
+);
+console.log(symmetricDiff([1, 2, 3, 4, 5, 6], [9, 8, 7, 1, 2, 5, 11]));
