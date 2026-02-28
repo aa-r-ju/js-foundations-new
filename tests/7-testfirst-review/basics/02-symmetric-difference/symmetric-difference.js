@@ -10,4 +10,10 @@
 
 /* eslint-disable no-unused-vars */
 
-function difference(arrayA, arrayB) {}
+function difference(arrayA, arrayB) {
+  return arrayA.filter((val) => !arrayB.includes(val));
+}
+console.log(difference([1, 2, 3, 4, 5, 6], [9, 8, 7, 1, 2, 5, 11]));
+console.log(
+  difference(["hello", "world", "bye"], ["full", "stack", "world", "bye"])
+);
