@@ -13,7 +13,24 @@ class Vehicle {
     }
   }
 }
-let vv = new Vehicle([2, "gas", "Harly-Davidson"]);
-console.log(vv.getSpec("wheelTotal"));
-console.log(vv.getSpec("energySource"));
-console.log(vv.getSpec("manufacturer"));
+
+class Tesla extends Vehicle {
+  constructor(arr) {
+    super(arr[4][0]);
+
+    this.milesPerCharge = arr[0];
+    this.model = arr[1];
+    this.chargePercentage = arr[2];
+    this.minutesToCharge = arr[3];
+  }
+
+  minutesToFullCharge(currentCharge) {
+    let remaining = 100 - currentCharge;
+    let time = (remaining / 100) * this.minutesToCharge;
+
+    return time + " minutes until the charge is full!";
+  }
+}
+
+let rr = new Tesla([300, "Model S", 50, 100, [[4, "electric", "Tesla"]]]);
+console.log(rr.minutesToFullCharge(15));
