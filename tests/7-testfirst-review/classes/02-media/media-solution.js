@@ -34,15 +34,10 @@ class Media {
   }
 }
 
-let kk = new Media("Example Title", 2004);
-console.log(kk.getTitle());
-console.log(kk.getYearOfRelease());
-
-console.log(kk.addRating(22));
-console.log(kk.addRating(88));
-console.log(kk.addRating(92));
-console.log(kk.addRating(100));
-console.log(kk.addRating(67));
-console.log(kk.addRating(93));
-console.log(kk.getAverageRating(), "ppp");
-console.log(kk);
+class Album extends Media {
+  constructor(title, yearOfRelease, artist, tracks) {
+    super(title, yearOfRelease);
+    this.artist = artist;
+    this.tracks = tracks;
+  }
+}
