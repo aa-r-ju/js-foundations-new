@@ -49,3 +49,10 @@ class Movie extends Media {
     this.runTime = runTime;
   }
 }
+class Book extends Media {
+  constructor(title, yearOfRelease, author, pages) {
+    super(title, yearOfRelease);
+    this.author = author;
+    this.pages = pages;
+  }
+}
