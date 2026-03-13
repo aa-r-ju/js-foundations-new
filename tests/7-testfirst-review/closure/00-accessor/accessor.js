@@ -7,9 +7,3 @@ function accessor(obj) {
     return obj[key];
   };
 }
-
-let kk = { stuff: "something" };
-let rsult = accessor(kk);
-console.log(rsult("stuff", "anything"));
-console.log(rsult("pizza-pie", "yummmm"));
-console.log();
